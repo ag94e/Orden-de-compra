@@ -11,13 +11,10 @@
     <section class="login">
         <section class="login__container">
             <h2>Inicia sesión</h2>
-            <form action="" class="login__container--form">
-                <input type="text" class="input" placeholder="Correo">
-                <input type=password class="input" placeholder="Contraseña">
+            <form action="controller/login.php" class="login__container--form" method="post">
+                <input type="text" class="input" placeholder="Usuario" name='usuario'>
+                <input type=password class="input" placeholder="Contraseña" name='contra'>
                 <button class="button">Iniciar sesión</button>
-                <div class="login__container--remember-me">
-                    <a href="#">Olvidé mi contraseña</a>
-                </div>
             </form>
     </section>
 </body>
