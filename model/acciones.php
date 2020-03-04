@@ -24,7 +24,7 @@ ini_set('display_errors', '1');
             return $query;
         }
         public function login($user,$contra){
-            $query=$this->db->query("SELECT * FROM usuarios WHERE usuario = '$user' AND password = '$contra'");
+            $query=$this->db->query("SELECT * FROM usuarios WHERE usuario = '$user' AND contraseña = '$contra'");
             $result = $query->num_rows;
             if ($result > 0){
                 foreach ($query as $resultado){
@@ -43,7 +43,7 @@ ini_set('display_errors', '1');
                     echo '
                         <script>
                             alert(\'Bienvenido\');
-                            window.location.href=\'../views/captura.php\';
+                            window.location.href=\'../views/home-captura.php\';
                         </script>
                     ';
                     break;
