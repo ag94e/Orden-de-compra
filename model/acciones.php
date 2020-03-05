@@ -24,7 +24,7 @@ ini_set('display_errors', '1');
             return $query;
         }
         public function login($user,$contra){
-            $query=$this->db->query("SELECT * FROM usuarios WHERE usuario = '$user' AND contraseña = '$contra'");
+            $query=$this->db->query("SELECT * FROM usuarios WHERE usuario = '$user' AND passw = '$contra'");
             $result = $query->num_rows;
             if ($result > 0){
                 foreach ($query as $resultado){
