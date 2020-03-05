@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles/general.css">
     <link rel="stylesheet" href="../styles/header.css">
-    <title>Artículo</title>
+    <title>Articulo</title>
 </head>
 <body>
     <?php require_once 'header.php'; ?>
@@ -17,14 +17,23 @@
         <label for="costo">Costo (antes de IVA)</label>
         <input type="text" name="costo" id="costo"><br>
         <label for="giro">Giro</label>
-        <input type="text" name="giro" id="giro"><br>
+        <select name="giro" id="giro">
+        <?php include_once '../model/acciones.php';
+            $art = new compra();
+            $giro = new compra();
+            $showArt = $art->articles();
+            $showGiro = $giro->giros();
+            foreach($showGiro as $giro) { 
+        ?>
+            <option value="<?php echo $giro['Descripcion']; ?>"> <?php echo $giro['Descripcion']; ?></option>
+        <?php 
+            }
+        ?>
+        </select>
         <button name="enviar" type="submit">Enviar</button>
     </form>
     <a href="home-captura.php"><button>Regresar</button></a>
-    <?php include_once '../model/acciones.php';
-        $art = new compra();
-        $showArt = $art->articles();
-    ?>
+
     <table>
         <thead>
             <tr>
