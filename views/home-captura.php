@@ -9,7 +9,8 @@
 </head>
 <body>
 <?php require_once 'header.php'; ?>
-    <a href="captura.php"><button>Capturar proveedor</button></a>
-    <a href="captura2.php"><button>Capturar artículo</button></a>
+    <a href="proveedor.php"><button>Capturar proveedor</button></a>
+    <a href="articulo.php"><button>Capturar artículo</button></a>
+    <a href="giro.php"><button>Capturar giro</button></a>
 </body>
 </html>

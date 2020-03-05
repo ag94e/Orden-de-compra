@@ -1,5 +1,5 @@
 <header class="header">
-    <div class="container logo-nav-container">
+    <div class="logo-nav-container">
         <a href="#" class="logo">LOGO</a>
         <span class="menu-icon">Ver menú</span>
         <nav class="navigation">
