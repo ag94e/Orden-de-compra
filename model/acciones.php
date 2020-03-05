@@ -79,6 +79,31 @@ ini_set('display_errors', '1');
                 ';
             }
         }
+        public function addArticle($name, $desc, $costo, $giro){
+            $query=$this->db->query("SELECT * FROM articulos WHERE nombre = '$name' AND descripcion = '$desc' AND costo = '$costo' AND giro = '$giro'");
+            $result = $query->num_rows;
+            if ($result > 0) {
+              echo '
+                  <script>
+                      alert("No puedes agregar el mismo artículo, favor de ingresar uno correcto");
+                      window.location.href="../views/articulo.php";
+                  </script>
+              ';
+            }else{
+              $article=$this->db->query("INSERT INTO articulos (id, nombre, descripcion, costo, giro) VALUES ('', '$name','$desc','$costo','$giro')");
+              var_dump($article);
+              echo '
+                  <script>
+                      alert("Se agregó el artículo de manera correcta.");
+                      window.location.href="../views/articulo.php";
+                  </script>
+                ';
+            }
+        }
+        public function articles(){
+            $query=$this->db->query("SELECT * FROM articulos");
+            return $query;
+        }
     }
 ////////////////////////////////////////////////
 ///////        CLASE PARA SESSION        ///////
@@ -87,21 +112,5 @@ ini_set('display_errors', '1');
 ///////        CLASE PARA SESSION        ///////
 ///////        CLASE PARA SESSION        ///////
 ////////////////////////////////////////////////
-    class sesion{
-    
-        public function __construct(){
-            session_start();
-        }
-        public function setCurrentUser($usuario){
-            $_SESSION['usuario'] = $usuario;
-        }
-        public function getCurrentUser(){
-            return $_SESSION['usuario'];
-        }
-        public function closeSession(){
-            session_unset();
-            session_destroy();
-        }
-    }
 
 ?>
