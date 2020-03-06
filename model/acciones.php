@@ -61,15 +61,15 @@ ini_set('display_errors', '1');
                     default: '
                         <script>
                             alert(\'Usuario sin rol, verifique con el administrador\');
-                            window.location.href=\'../\';
+                            window.location.href=\'../model/cerrar.php\';
                         </script>
                     ';
                 }
             }else{
                 echo '
                     <script>
-                        alert(\' Porfavor verifique su informacion\');
-                        window.location.href=\'../\';
+                        alert(\'Porfavor verifique su informacion\');
+                        window.location.href=\'../model/cerrar.php\';
                     </script>
                 ';
             }
