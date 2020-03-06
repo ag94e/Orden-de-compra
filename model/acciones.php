@@ -33,7 +33,6 @@ ini_set('display_errors', '1');
                     case 1:
                     echo '
                         <script>
-                            alert(\'Bienvenido\');
                             window.location.href=\'../views/inicio.php\';
                         </script>
                     ';
@@ -41,7 +40,6 @@ ini_set('display_errors', '1');
                     case 2:
                     echo '
                         <script>
-                            alert(\'Bienvenido\');
                             window.location.href=\'../views/home-captura.php\';
                         </script>
                     ';
@@ -49,15 +47,13 @@ ini_set('display_errors', '1');
                     case 3:
                     echo '
                         <script>
-                            alert(\'Bienvenido\');
-                            window.location.href=\'../views/compras.php\';
+                            window.location.href=\'../views/compra.php\';
                         </script>
                         ';
                     break;
                     case 4:
                     echo '
                         <script>
-                            alert(\'Bienvenido\');
                             window.location.href=\'../views/inicio.php\';
                         </script>
                     ';
