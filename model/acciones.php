@@ -78,20 +78,10 @@ ini_set('display_errors', '1');
                 ';
             }
         }
-<<<<<<< HEAD
         public function setUser($user){
             $query=$this->db->query("SELECT * FROM usuarios WHERE usuario = '$user'");
             return $query;
         }
-=======
-        ////////////////////////////////////////////////
-        ///////         AGREGAR ARTÍCULOS        ///////
-        ///////         AGREGAR ARTÍCULOS        ///////
-        ///////         AGREGAR ARTÍCULOS        ///////
-        ///////         AGREGAR ARTÍCULOS        ///////
-        ///////         AGREGAR ARTÍCULOS        ///////
-        ////////////////////////////////////////////////
->>>>>>> f7b31904f3274b51562a9966ef6a331676449f70
         public function addArticle($name, $desc, $costo, $giro){
             $query=$this->db->query("SELECT * FROM articulos WHERE nombre = '$name' AND descripcion = '$desc' AND costo = '$costo' AND giro = '$giro'");
             $result = $query->num_rows;
