@@ -6,7 +6,7 @@
     if(empty($usuario) || empty($contra)){
         echo '
             <script>
-                alert(\'Porfavor no dejes los campos vacíos\');
+                alert(\'Porfavor no dejes los campos vacios\');
                 window.location.href="../";
             </script>
         ';        
