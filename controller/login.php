@@ -11,6 +11,8 @@
             </script>
         ';        
     }else{
+        $session = new session();
+        $NewSession = $session->setCurrentUser($usuario);
         $login->login($usuario,$contra);
     }
 ?>
