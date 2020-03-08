@@ -1,3 +1,6 @@
+<?php
+    require_once '../controller/sesiones.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

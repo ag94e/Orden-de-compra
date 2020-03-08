@@ -1,5 +1,5 @@
 <?php
-    require '../controller/sesiones.php';
+    require_once '../controller/sesiones.php';
 ?>
 <!DOCTYPE html>
 <html lang="es">

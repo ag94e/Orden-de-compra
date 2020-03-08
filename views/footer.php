@@ -1,3 +1,6 @@
+<?php
+    require_once '../controller/sesiones.php';
+?>
 <footer>
         <div class="container-footer-all">
             <div class="container-body">

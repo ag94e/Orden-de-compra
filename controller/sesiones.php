@@ -1,5 +1,5 @@
 <?php 
-    include '../model/acciones.php';
+    include_once '../model/acciones.php';
     $userSession = new session();
     $newusuario = new compra();
     if(isset($_SESSION['usuario'])){
