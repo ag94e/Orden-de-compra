@@ -1,3 +1,3 @@
 <?php
-    include '../controller/sesiones.php';
+   header('Location: ../');
 ?>
