@@ -144,6 +144,26 @@ ini_set('display_errors', '1');
             $query=$this->db->query("SELECT * FROM `giro 1`");
             return $query;
         }
+        public function addGiro($giros){
+            $query = $this->db->query("SELECT * FROM `giro 1` WHERE Descripcion = '$giros'");
+            $nameGiro = $query->num_rows;
+            if ($nameGiro > 0){
+                echo '
+                <script>
+                    alert("Verifique que la información sea correcta.");
+                    window.location.href="../views/giro.php";
+                </script>
+                ';
+            }else{
+                $this->db->query("INSERT INTO `giro 1` (ID, Descripcion) VALUES ('', '$giros')");
+                echo '
+                <script>
+                    alert("Se agregó correctamente el giro");
+                    window.location.href="../views/giro.php";
+                </script>
+                ';
+            }
+        }
     }
 ////////////////////////////////////////////////
 ///////        CLASE PARA SESSION        ///////

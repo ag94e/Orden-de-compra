@@ -14,10 +14,11 @@ footer{
     justify-content: space-around;
   }
   .colum1{
-    max-width: 400px;
+    max-width: 300px;
   }
   .colum1 h1{
     font-size: 22px;
+    text-align: center;
   }
   .colum1 p{
     font-size: 14px;
@@ -26,14 +27,16 @@ footer{
     text-align: justify;
   }
   .colum2{
-    max-width: 400px;
+    max-width: 250px;
   }
   .colum2 h1{
     font-size: 22px;
+    text-align: center;
   }
   .row{
     margin-top: 20px;
     display: flex;
+    justify-content: space-around;
   }
   .row img{
     width: 36px;
@@ -45,11 +48,12 @@ footer{
     color: #C7C7C7;
   }
   .colum3{
-    max-width: 400px;
+    max-width: 500px;
     text-align: justify;
   }
   .colum3 h1{
     font-size: 22px;
+    text-align: center;
   }
   .row2{
     margin-top: 20px;
@@ -85,6 +89,10 @@ footer{
   }
   .information a{
     text-decoration: none;
+    color: #C7C7C7;
+  }
+  .information a:hover{
+    text-decoration: underline;
     color: #C7C7C7;
   }
   @media screen and (max-width: 1100px){

@@ -5,43 +5,34 @@
         <div class="container-footer-all">
             <div class="container-body">
                 <div class="colum1">
-                    <h1>Informacion de la compania</h1>
+                    <h1>UTAPP</h1>
                     <p>
-                    Esta compania se dedica ala venta de tecnologia avanzada
-                    Nuestra historia empezo con dos empresas y una vision compartida:
-                    proporcionar a las personas de todo el mundo mayor acceso a la tecnologia
+                    Página enfocada a desarrollo de Orden de Compra como proyecto.
+                    **No para uso comercial**
                     </p>
                 </div>
                 <div class="colum2">
                     <h1>Redes Sociales</h1>
                     <div class="row">
                         <img src="../assets/img/facebook.png">
-                        <label>Facebook</label>
-                    </div>
-                    <div class="row">
                         <img src="../assets/img/twitter.png">
-                        <label>Twitter</label>
-                    </div>
-                    <div class="row">
                         <img src="../assets/img/instagram.png">
-                        <label>Instagram</label>
                     </div>
                 </div>
                 <div class="colum3">
                     <h1>Informacion Contactos</h1>
                     <div class="row2">
                         <img src="../assets/img/house.png">
-                        <label>Av. Benito Juarez 101, 
-                            Centro, 64000 Monterrey, N.L.
+                        <label> Dirección
                         </label>
                     </div>
                     <div class="row2">
                         <img src="../assets/img/smartphone.png">
-                        <label>+52-8110727848</label>
+                        <label>+52 0000000000</label>
                     </div>
                     <div class="row2">
                         <img src="../assets/img/contact.png">
-                        <label>teamnosajo@gmail.com </label>
+                        <label>ejemplo@ejemplo.com </label>
                     </div>
                 </div>
             </div>
@@ -49,10 +40,14 @@
         <div class="container-footer">
             <div class="footer-footer">
                 <div class="copyright">
-                    © 2020 Todos los Derechos Reservados | <a href=""></a>
+                    <label> © 2020 Todos los Derechos Reservados </label>
                 </div>
                 <div class="information">
-                    <a href="">Informacion Compañia</a> | <a href="">Privacion y Politica</a> | <a href="">Terminos y Condiciones</a>
+                    <a href="">Informacion UTAPP</a>
+                    <label>|</label>
+                    <a href="">Politica y privacidad</a>
+                    <label>|</label>
+                    <a href="">Terminos y Condiciones</a>
                 </div>
             </div>
         </div>
