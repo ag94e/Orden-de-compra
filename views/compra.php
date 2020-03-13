@@ -1,5 +1,6 @@
 <?php
     require_once '../controller/sesiones.php';
+    include '../controller/tiempo_sesion.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
