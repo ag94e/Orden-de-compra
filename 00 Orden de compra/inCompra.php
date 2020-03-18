@@ -31,7 +31,7 @@ $pdf -> output('I');
 
 $compra= new consul();
 
-$compras= $compra->inCompra($idProveedor,$usuario,$articulo,$descripcion,$costo,$total,$fechaEntrega);
+$compra->inCompra($idProveedor,$usuario,$articulo,$descripcion,$costo,$total,$fechaEntrega);
 
         
 

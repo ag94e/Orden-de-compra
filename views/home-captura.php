@@ -7,6 +7,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="../assets/styles/general.css">
     <link rel="stylesheet" href="../assets/styles/header.css">
     <link rel="stylesheet" href="../assets/styles/footer.css">
@@ -14,9 +15,13 @@
 </head>
 <body>
 <?php require_once 'header.php'; ?>
-    <a href="proveedor.php"><button>Capturar proveedor</button></a>
-    <a href="articulo.php"><button>Capturar artículo</button></a>
-    <a href="giro.php"><button>Capturar giro</button></a>
+    <div class="medio">
+        <div class="container">
+            <a href="proveedor.php"><button class="button type3">Capturar proveedor</button></a>
+            <a href="articulo.php"><button class="button type3">Capturar articulo</button></a>
+            <a href="giro.php"><button class="button type3">Capturar giro</button></a>
+        </div>
+    </div>
 <?php require_once 'footer.php'; ?>
 </body>
-</html>
+</html> 
