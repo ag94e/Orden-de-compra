@@ -15,7 +15,7 @@
 </head>
 <body>
     <?php require_once 'header.php'; ?>
-    <form action="../controller/send_proveedor.php" method="POST">
+    <form id="formulario">
         <div class="container">
             <label for="nombre">Proveedor:</label>
             <input type="text" name="nombre" id="nombre" class="form-control"><br>
@@ -71,12 +71,12 @@
             ?>
             </select>
             <br>
-            <button class="btn btn-outline-secondary" name="enviar" type="submit">Enviar</button>
+            <button class="btn btn-outline-secondary" name="enviar" id="enviar">Enviar</button>
         </div>
     </form>
     <br>
-    <div id="datos">
-        <table class="table table-striped">
+    <div>
+        <table class="table table-striped table-responsive-lg">
             <thead class="thead-dark">
                 <tr>
                     <th scope="col">ID PROVEEDOR</th>
@@ -93,31 +93,14 @@
                     <th scope="col">GIRO 4</th>
                 </tr>
             </thead>
-            <tbody>
-                <?php foreach($showProv as $prov){?>
-                <tr>
-                    <th scope="row"><?php echo $prov['id']; ?></th>
-                    <td><?php echo $prov['Nombre']; ?></td>
-                    <td><?php echo $prov['Direccion']; ?></td>
-                    <td><?php echo $prov['Correo']; ?></td>
-                    <td><?php echo $prov['Telefono']; ?></td>
-                    <td><?php echo $prov['RFC']; ?></td>
-                    <td><?php echo $prov['Contacto']; ?></td>
-                    <td><?php echo $prov['Estatus']; ?></td>
-                    <td><?php echo $prov['giro1']; ?></td>
-                    <td><?php echo $prov['giro2']; ?></td>
-                    <td><?php echo $prov['giro3']; ?></td>
-                    <td><?php echo $prov['giro4']; ?></td>
-                </tr>
-                <?php } ?>
+            <tbody id="datos">
             </tbody>
         </table>
     </div>
     <div class="button-center">
-        <a href="home-captura.php"><button class="btn btn-outline-secondary">Regresar</button></a>
+        <button class="btn btn-outline-secondary">Regresar</button>
     </div>
     <?php require_once 'footer.php'; ?>
-    <script src="jquery-3.4.1.min.js"></script>
     <script src="../assets/js/proveedor.js"></script>
 </body>
 </html>

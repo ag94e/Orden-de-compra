@@ -13,6 +13,7 @@ ini_set('display_errors', '1');
     class compra{
         private $db;
         private $table;
+        private $list;
 
         public function __construct(){
             $this->db=conexion::conn();
@@ -131,7 +132,10 @@ ini_set('display_errors', '1');
         }
         public function proveedor(){
             $query=$this->db->query("SELECT * FROM provedores");
-            return $query;
+            while($filas=$query->fetch_assoc()){
+                $this->lista[]=$filas;
+            }
+            return $this->lista;
         }
         ////////////////////////////////////////////////
         ///////           AGREGAR GIROS          ///////
