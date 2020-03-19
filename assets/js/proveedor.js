@@ -3,18 +3,34 @@
 var contenido = document.querySelector('#datos');
 var boton = document.querySelector('#enviar');
 boton.addEventListener("click",enviar);
-function enviar() {
-    var valores = new FormData(document.getElementById('formulario'))
-    console.log(valores)
-}
+// var valores = new FormData(document.getElementById('formulario'))
 
-// function enviar(){
-//     fetch("../controller/send_proveedores.php", {
-//         method: "POST",
-//         body: valores
-//     })
-//         .then()
-// }
+
+function enviar(){
+    var valores = new FormData(document.getElementById('formulario'))
+    fetch("../controller/send_proveedor.php", {
+        method: "POST",
+        body: valores
+        
+        // JSON.stringify(valores),
+        // headers: {
+        //     'Content-Type': 'application/json'
+        // }
+    })
+        .then(function(response){
+            if(response.ok){
+                return response.text()
+            }else{
+                throw "Error"
+            }
+        })
+        .then(function(texto) {
+            console.log(texto);
+         })
+         .catch(function(err) {
+            console.log(err);
+         });
+}
 
 window.onload = () => {
     contenido.innerHTML = ''
