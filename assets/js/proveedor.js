@@ -6,31 +6,30 @@ boton.addEventListener("click",enviar);
 // var valores = new FormData(document.getElementById('formulario'))
 
 
-function enviar(){
-    var valores = new FormData(document.getElementById('formulario'))
-    fetch("../controller/send_proveedor.php", {
-        method: "POST",
-        body: valores
+// function enviar(){
+//     fetch("../controller/send_proveedor.php", {
+//         method: "POST",
+//         body: data
         
-        // JSON.stringify(valores),
-        // headers: {
-        //     'Content-Type': 'application/json'
-        // }
-    })
-        .then(function(response){
-            if(response.ok){
-                return response.text()
-            }else{
-                throw "Error"
-            }
-        })
-        .then(function(texto) {
-            console.log(texto);
-         })
-         .catch(function(err) {
-            console.log(err);
-         });
-}
+//         // JSON.stringify(valores),
+//         // headers: {
+//         //     'Content-Type': 'application/json'
+//         // }
+//     })
+//         .then(function(response){
+//             if(response.ok){
+//                 return response.text()
+//             }else{
+//                 throw "Error"
+//             }
+//         })
+//         .then(function(texto) {
+//             console.log(texto);
+//          })
+//          .catch(function(err) {
+//             console.log(err);
+//          });
+// }
 
 window.onload = () => {
     contenido.innerHTML = ''
