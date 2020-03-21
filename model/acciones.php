@@ -114,20 +114,10 @@ ini_set('display_errors', '1');
             $query=$this->db->query("SELECT * FROM provedores WHERE Nombre = '$name' AND Direccion = '$address' AND Correo = '$email' AND Telefono = '$phone' AND RFC = '$rfc' AND Contacto = '$contact' AND giro1 = '$giro1' AND giro2 = '$giro2' AND giro3 = '$giro3' AND giro4 = '$giro4'");
             $result = $query->num_rows;
             if ($result > 0) {
-              echo '
-                  <script>
-                      alert("No puedes agregar el mismo proveedor, favor de ingresar uno nuevo");
-                      window.location.href="../views/proveedor.php";
-                  </script>
-              ';
+              echo json_encode('No puedes agregar el mismo proveedor, favor de ingresar uno nuevo');
             }else{
               $prov=$this->db->query("INSERT INTO provedores (id, Nombre, Direccion, Correo, Telefono, RFC, Contacto, Estatus, giro1, giro2, giro3, giro4) VALUES ('', '$name','$address','$email','$phone','$rfc','$contact','Activo','$giro1','$giro2','$giro3','$giro4')");
-              echo '
-                  <script>
-                      alert("Se agrego el proveedor de manera correcta.");
-                      window.location.href="../views/proveedor.php";
-                  </script>
-                ';
+              echo json_encode('Se agrego el proveedor de manera correcta');
             }
         }
         public function proveedor(){

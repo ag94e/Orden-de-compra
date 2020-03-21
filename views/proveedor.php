@@ -71,7 +71,7 @@
             ?>
             </select>
             <br>
-            <button class="btn btn-outline-secondary" name="enviar" id="enviar">Enviar</button>
+            <button class="btn btn-outline-secondary" name="enviar" id="enviar" type="submit">Enviar</button>
         </div>
     </form>
     <br>

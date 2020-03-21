@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 
 var contenido = document.querySelector('#datos');
@@ -31,7 +32,10 @@ boton.addEventListener("click",enviar);
 //          });
 // }
 
+=======
+>>>>>>> d3d703d7a317ea1a659b0eae26943251fcca3ace
 window.onload = () => {
+    var contenido = document.querySelector('#datos');
     contenido.innerHTML = ''
     fetch("../model/proveedor.php")
         .then(data => data.json())
@@ -56,4 +60,21 @@ window.onload = () => {
                 `
             }
         })
+}
+var form = document.getElementById('formulario');
+form.addEventListener('submit', enviar);
+function enviar(e){
+    e.preventDefault();
+    var valores = new FormData(form);
+    fetch("../controller/send_proveedor.php", {
+        method: "POST",
+        body: valores
+    })
+        .then( res => res.json())
+        .then( data => {
+            console.log(data);
+        })
+         .catch(function(err) {
+            console.log(err);
+         });
 }
