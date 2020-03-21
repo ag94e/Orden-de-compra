@@ -75,6 +75,9 @@
         </div>
     </form>
     <br>
+    <div class="container" id="alerta">
+    
+    </div>
     <div>
         <table class="table table-striped table-responsive-lg">
             <thead class="thead-dark">

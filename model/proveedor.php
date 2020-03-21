@@ -4,9 +4,8 @@
     require_once '../controller/sesiones.php';
     include '../controller/tiempo_sesion.php';
     if ($_SESSION["usuario"]){
-        $result = json_encode($prov->proveedor());
-        echo $result;
-        return $result;
+        $result = $prov->proveedor();
+        echo json_encode($result);
     }else{
         header("Location: ../");
     }
