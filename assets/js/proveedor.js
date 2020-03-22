@@ -3,7 +3,7 @@ var contenido = document.querySelector('#datos');
 var alerta = document.getElementById('alerta');
 function load() {
     contenido.innerHTML = ''
-    fetch("../model/proveedor.php") 
+    fetch("../Bd/proveedor.php") 
         .then(data => data.json())
         .then(data => {
             var numeros = Object.keys(data).length
@@ -51,7 +51,7 @@ function enviar(e){
                 </div>
                 `;
             }else{
-                return fetch("../model/proveedor.php"); 
+                return fetch("../Bd/proveedor.php"); 
             }
         })
         .then(data => data.json())

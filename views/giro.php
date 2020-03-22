@@ -1,6 +1,19 @@
 <?php
-    require_once '../controller/sesiones.php';
+    include_once '../model/acciones.php';
     include '../controller/tiempo_sesion.php';
+    $user = new session();
+    if(isset($_SESSION['usuario'])){
+        $usuario = new compra();
+        $rolUsuario = $usuario->setUser($user->getCurrentUser());
+        foreach ($rolUsuario as $usuario){
+            $rol = $usuario['rol'];
+            if($rol == 3){
+                header("Location: compra.php");
+            }
+        }
+    }else{
+        header ("Location: ../");
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">

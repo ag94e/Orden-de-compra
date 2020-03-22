@@ -126,9 +126,9 @@ ini_set('display_errors', '1');
         public function proveedor(){
             $query=$this->db->query("SELECT * FROM provedores");
             while($filas=$query->fetch_assoc()){
-                $this->lista[]=$filas;
+                $this->list[]=$filas;
             }
-            return $this->lista;
+            return $this->list;
         }
         ////////////////////////////////////////////////
         ///////           AGREGAR GIROS          ///////

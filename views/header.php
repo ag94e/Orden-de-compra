@@ -1,6 +1,3 @@
-<?php
-    require_once '../controller/sesiones.php';
-?>
 <header class="header">
     <div class="logo-nav-container">
         <a href="#" class="logo">LOGO</a>
