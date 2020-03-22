@@ -1,6 +1,5 @@
 <?php
     include_once '../model/acciones.php';
-    include '../controller/tiempo_sesion.php';
     $user = new session();
     if(isset($_SESSION['usuario'])){
         $usuario = new compra();
@@ -14,6 +13,7 @@
     }else{
         header ("Location: ../");
     }
+    include '../controller/tiempo_sesion.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -28,37 +28,33 @@
 </head>
 <body>
     <?php require 'header.php'; ?>
-    <form action="../controller/send_giro.php" method="POST">
+    <form id="formulario">
         <div class="container">
             <label for="giro">Giro:</label>
             <input type="text" name="giro" id="giro" class="form-control"><br>
-            <button class="btn btn-outline-secondary" name="enviar" type="submit">Enviar</button>
+            <button class="btn btn-outline-secondary" name="enviar" type="submit" id="enviar">Enviar</button>
         </div>
-    </form><br>
-    <?php include_once '../model/acciones.php';
-        $giro = new compra();
-        $showGiro = $giro->giros();
-    ?>
-    <table class="table table-striped">
-        <thead class="thead-dark">
-            <tr>
-                <th scope="col">Clave</th>
-                <th scope="col">GIRO</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php foreach($showGiro as $giro){?>
-            <tr>
-                <th scope="row"><?php echo $giro['ID']; ?></th>
-                <td><?php echo $giro['Descripcion']; ?></td>
-            </tr>
-            <?php } ?>
-        </tbody>
-    </table>
+    </form>
+    <br>
+    <div class="container" id="alerta">
+    
+    </div>
+    <div class="container">
+        <table class="table table-striped table-responsive-sm">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Clave</th>
+                    <th scope="col">GIRO</th>
+                </tr>
+            </thead>
+            <tbody id="datos">
+            </tbody>
+        </table>
+    </div>
     <div class="button-center">
         <a href="home-captura.php"><button class="btn btn-outline-secondary">Regresar</button></a>
     </div>
     <?php require 'footer.php'; ?>
-    <script src="jquery-3.4.1.min.js"></script>
+    <script src="../assets/js/giro.js"></script>
 </body>
 </html>

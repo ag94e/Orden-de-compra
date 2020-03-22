@@ -79,29 +79,30 @@ ini_set('display_errors', '1');
             $query=$this->db->query("SELECT * FROM usuarios WHERE usuario = '$user'");
             return $query;
         }
+        ////////////////////////////////////////////////
+        ///////         AGREGAR ARTICULOS        ///////
+        ///////         AGREGAR ARTICULOS        ///////
+        ///////         AGREGAR ARTICULOS        ///////
+        ///////         AGREGAR ARTICULOS        ///////
+        ///////         AGREGAR ARTICULOS        ///////
+        ///////         AGREGAR ARTICULOS        ///////
+        ////////////////////////////////////////////////
         public function addArticle($name, $desc, $costo, $giro){
             $query=$this->db->query("SELECT * FROM articulos WHERE nombre = '$name' AND descripcion = '$desc' AND costo = '$costo' AND giro = '$giro'");
             $result = $query->num_rows;
             if ($result > 0) {
-              echo '
-                  <script>
-                      alert("No puedes agregar el mismo articulo, favor de ingresar uno correcto");
-                      window.location.href="../views/articulo.php";
-                  </script>
-              ';
+                echo json_encode('error2');
             }else{
-              $article=$this->db->query("INSERT INTO articulos (id, nombre, descripcion, costo, giro) VALUES ('', '$name','$desc','$costo','$giro')");
-              echo '
-                  <script>
-                      alert("Se agrego el articulo de manera correcta.");
-                      window.location.href="../views/articulo.php";
-                  </script>
-                ';
+                $article=$this->db->query("INSERT INTO articulos (id, nombre, descripcion, costo, giro) VALUES ('', '$name','$desc','$costo','$giro')");
+                echo json_encode('success');
             }
         }
         public function articles(){
             $query=$this->db->query("SELECT * FROM articulos");
-            return $query;
+            while($filas=$query->fetch_assoc()){
+                $this->list[]=$filas;
+            }
+            return $this->list;
         }
         ////////////////////////////////////////////////
         ///////         AGREGAR PROVEEDOR        ///////
@@ -114,13 +115,10 @@ ini_set('display_errors', '1');
             $query=$this->db->query("SELECT * FROM provedores WHERE Nombre = '$name' AND Direccion = '$address' AND Correo = '$email' AND Telefono = '$phone' AND RFC = '$rfc' AND Contacto = '$contact' AND giro1 = '$giro1' AND giro2 = '$giro2' AND giro3 = '$giro3' AND giro4 = '$giro4'");
             $result = $query->num_rows;
             if ($result > 0) {
-                $err = 'error2';
-                $error = json_encode($err);
-                echo $error;
-                return $error;
+                echo json_encode('error2');
             }else{
-              $prov=$this->db->query("INSERT INTO provedores (id, Nombre, Direccion, Correo, Telefono, RFC, Contacto, Estatus, giro1, giro2, giro3, giro4) VALUES ('', '$name','$address','$email','$phone','$rfc','$contact','Activo','$giro1','$giro2','$giro3','$giro4')");
-              echo json_encode('success');
+                $prov=$this->db->query("INSERT INTO provedores (id, Nombre, Direccion, Correo, Telefono, RFC, Contacto, Estatus, giro1, giro2, giro3, giro4) VALUES ('', '$name','$address','$email','$phone','$rfc','$contact','Activo','$giro1','$giro2','$giro3','$giro4')");
+                echo json_encode('success');
             }
         }
         public function proveedor(){
@@ -139,26 +137,19 @@ ini_set('display_errors', '1');
         ////////////////////////////////////////////////
         public function giros(){
             $query=$this->db->query("SELECT * FROM `giro 1`");
-            return $query;
+            while($filas=$query->fetch_assoc()){
+                $this->list[]=$filas;
+            }
+            return $this->list;
         }
         public function addGiro($giros){
             $query = $this->db->query("SELECT * FROM `giro 1` WHERE Descripcion = '$giros'");
             $nameGiro = $query->num_rows;
             if ($nameGiro > 0){
-                echo '
-                <script>
-                    alert("Verifique que la información sea correcta.");
-                    window.location.href="../views/giro.php";
-                </script>
-                ';
+                echo json_encode('error2');
             }else{
                 $this->db->query("INSERT INTO `giro 1` (ID, Descripcion) VALUES ('', '$giros')");
-                echo '
-                <script>
-                    alert("Se agregó correctamente el giro");
-                    window.location.href="../views/giro.php";
-                </script>
-                ';
+                echo json_encode('success');
             }
         }
     }

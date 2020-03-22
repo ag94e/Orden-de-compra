@@ -3,7 +3,7 @@ var contenido = document.querySelector('#datos');
 var alerta = document.getElementById('alerta');
 function load() {
     contenido.innerHTML = ''
-    fetch("../Bd/proveedor.php") 
+    fetch("../Bd/articulo.php") 
         .then(data => data.json())
         .then(data => {
             var numeros = Object.keys(data).length
@@ -11,17 +11,10 @@ function load() {
                 contenido.innerHTML += `
                 <tr>
                     <th scope="row">${data[n].id}</th>
-                    <td>${data[n].Nombre}</td>
-                    <td>${data[n].Direccion}</td>
-                    <td>${data[n].Correo}</td>
-                    <td>${data[n].Telefono}</td>
-                    <td>${data[n].RFC}</td>
-                    <td>${data[n].Contacto}</td>
-                    <td>${data[n].Estatus}</td>
-                    <td>${data[n].giro1}</td>
-                    <td>${data[n].giro2}</td>
-                    <td>${data[n].giro3}</td>
-                    <td>${data[n].giro4}</td>
+                    <td>${data[n].nombre}</td>
+                    <td>${data[n].descripcion}</td>
+                    <td>${data[n].costo}</td>
+                    <td>${data[n].giro}</td>
                 </tr>
                 `
             }
@@ -32,7 +25,7 @@ form.addEventListener('submit', enviar);
 function enviar(e){
     e.preventDefault();
     var valores = new FormData(form);
-    fetch("../controller/send_proveedor.php", {
+    fetch("../controller/send_article.php", {
         method: "POST",
         body: valores
     })
@@ -41,24 +34,24 @@ function enviar(e){
             if (data === 'error'){
                 alerta.innerHTML = `
                     <div class="alert alert-danger" role="alert">
-                        No dejes campos vacios, al menos el giro 1 debe tener datos.
+                        Porfavor no dejes los campos vacios.
                     </div>
                 `;
             }else if(data === 'error2'){
                 alerta.innerHTML = `
                 <div class="alert alert-danger" role="alert">
-                    No puedes agregar el mismo proveedor, favor de ingresar uno nuevo.
+                    No puedes agregar el mismo articulo, favor de ingresar uno correcto.
                 </div>
                 `;
             }else{
-                return fetch("../Bd/proveedor.php"); 
+                return fetch("../Bd/articulo.php"); 
             }
         })
         .then(data => data.json())
         .then(data => {
                 alerta.innerHTML = `
                 <div class="alert alert-success" role="alert">
-                    Se agregó de manera correcta el proveedor.
+                    Se agregó correctamente el articulo.
                 </div>
                 `;
                 contenido.innerHTML = ''
@@ -66,18 +59,11 @@ function enviar(e){
                 for(var n=0;n<=numeros;n++){
                     contenido.innerHTML += `
                     <tr>
-                        <th scope="row">`+data[n].id+`</th>
-                        <td>`+data[n].Nombre+`</td>
-                        <td>`+data[n].Direccion+`</td>
-                        <td>`+data[n].Correo+`</td>
-                        <td>`+data[n].Telefono+`</td>
-                        <td>`+data[n].RFC+`</td>
-                        <td>`+data[n].Contacto+`</td>
-                        <td>`+data[n].Estatus+`</td>
-                        <td>`+data[n].giro1+`</td>
-                        <td>`+data[n].giro2+`</td>
-                        <td>`+data[n].giro3+`</td>
-                        <td>`+data[n].giro4+`</td>
+                        <th scope="row">${data[n].id}</th>
+                        <td>${data[n].nombre}</td>
+                        <td>${data[n].descripcion}</td>
+                        <td>${data[n].costo}</td>
+                        <td>${data[n].giro}</td>
                     </tr>
                     `
                 }

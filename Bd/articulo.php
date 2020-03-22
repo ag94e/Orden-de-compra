@@ -1,11 +1,11 @@
 <?php
     include_once '../model/acciones.php';
-    $prov = new compra();
+    $art = new compra();
     $user = new session();
     if(isset($_SESSION['usuario'])){
         $usuario = new compra();
         $rolUsuario = $usuario->setUser($user->getCurrentUser());
-        $result = $prov->proveedor();
+        $result = $art->articles();
         echo json_encode($result);
     }else{
         header ("Location: ../");

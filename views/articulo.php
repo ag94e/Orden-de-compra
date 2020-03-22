@@ -1,6 +1,5 @@
 <?php
     include_once '../model/acciones.php';
-    include '../controller/tiempo_sesion.php';
     $user = new session();
     if(isset($_SESSION['usuario'])){
         $usuario = new compra();
@@ -14,6 +13,7 @@
     }else{
         header ("Location: ../");
     }
+    include '../controller/tiempo_sesion.php';
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -28,7 +28,7 @@
 </head>
 <body>
     <?php require_once 'header.php'; ?>
-    <form action="../controller/send_article.php" method="POST">
+    <form id="formulario">
         <div class="container">
             <label for="producto">Producto:</label>
             <input type="text" name="producto" id="producto" class="form-control"><br>
@@ -50,36 +50,32 @@
                 }
             ?>
             </select><br>
-            <button class="btn btn-outline-secondary" name="enviar" type="submit">Enviar</button>
+            <button class="btn btn-outline-secondary" name="enviar" type="submit" id="enviar">Enviar</button>
         </div>
     </form>
     <br>
-    <table class="table table-striped">
-        <thead class="thead-dark">
-            <tr>
-                <th scope="col">ID ARTICULO</th>
-                <th scope="col">NOMBRE</th>
-                <th scope="col">DESCRIPCION</th>
-                <th scope="col">COSTO (ANTES DE IVA)</th>
-                <th scope="col">GIRO</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php foreach($showArt as $art){?>
-            <tr>
-                <th scope="row"><?php echo $art['id']; ?></th>
-                <td><?php echo $art['nombre']; ?></td>
-                <td><?php echo $art['descripcion']; ?></td>
-                <td><?php echo $art['costo']; ?></td>
-                <td><?php echo $art['giro']; ?></td>
-            </tr>
-            <?php } ?>
-        </tbody>
-    </table>
+    <div class="container" id="alerta">
+    
+    </div>
+    <div>
+        <table class="table table-striped table-responsive-lg">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">ID ARTICULO</th>
+                    <th scope="col">NOMBRE</th>
+                    <th scope="col">DESCRIPCION</th>
+                    <th scope="col">COSTO (ANTES DE IVA)</th>
+                    <th scope="col">GIRO</th>
+                </tr>
+            </thead>
+            <tbody id="datos">
+            </tbody>
+        </table>
+    </div>
     <div class="button-center">
         <a href="home-captura.php"><button class="btn btn-outline-secondary">Regresar</button></a>
     </div>
     <?php require_once 'footer.php'; ?>
-    <script src="jquery-3.4.1.min.js"></script>
+    <script src="../assets/js/articulo.js"></script>
 </body>
 </html>

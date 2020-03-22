@@ -1,6 +1,5 @@
 <?php
     include_once '../model/acciones.php';
-    include '../controller/tiempo_sesion.php';
     $user = new session();
     if(isset($_SESSION['usuario'])){
         $usuario = new compra();
@@ -14,6 +13,7 @@
     }else{
         header ("Location: ../");
     }
+    include '../controller/tiempo_sesion.php';
 ?>
 <!DOCTYPE html>
 <html lang="es">
