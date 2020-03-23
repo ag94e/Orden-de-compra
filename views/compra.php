@@ -75,6 +75,10 @@
             <input type="text" id="costoIVA" name="costoIVA" class="form-control" readonly />
         </form>
     </div>
+    <div class="container d-flex justify-content-around mb-5">
+        <button class="btn btn-primary">Registrar Orden de compra</button>
+        <button class="btn btn-secondary">Ver Ordenes de compra</button>
+    </div>
     <?php require_once 'footer.php'; ?>
     <script src="../assets/js/compras.js"></script>
 </body>
