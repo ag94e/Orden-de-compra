@@ -27,44 +27,55 @@
     <title>Orden de compra</title>
 </head>
 <body>
-    <?php require_once 'header.php'; ?>
-    <h1>Orden de compra</h1>
-    <span>Proveedor</span>
-    <br>
-    <form action="" method="post">
-    <input type="text" name="proveedorId" id="proveedorId">
-    <select name="proveedor" id="proveedor">
-        <option value=""></option>
-    </select>
-    <br>
-    <span>Fecha y Fecha de entrega</span>
-    <input type="date" name="fecha" id="fecha"><input type="date" name="fechaEn" id="fechaEn">
-    <br>
-    <span>Materiales</span>
-    <select name="material" id="material">
-        <option value=""></option>
-    </select>
-    <input type="text" name="descripcion" id="descripcion">
-    <input type="number" name="cantidad" id="cantidad">
-    <input type="number" name="precio" id="precio">
-    <br>
-    <span>Precio</span><input type="number" name="precioSin" id="precioSin">
-    <br>
-    <span>IVA</span><input type="number" name="precioIva" id="precioIva">
-    <br>
-    <span>Precio Total</span><input type="number" name="precioTot" id="precioTot">
-    </form>
-    <script>
-    let numero = document.getElementById('precioSin');
-    numero.addEventListener('keyup',total);
-    function total() {
-        let num1 = document.getElementById('precioSin').value;
-        let result = parseInt(num1) * 1.16;
-        // let result1 = result.toFixed(2);
-        document.getElementById('precioTot').value = result.toFixed(2);
-        }
-    </script>
+    <?php require_once 'header.php';
+    $usuario1 = $user->getCurrentUser();
+    $nameUser = new compra();
+    $nombre = $nameUser->setUser($usuario1);
+    foreach ($nombre as $nameUser){
+        $name = $nameUser['nombre'];
+    }
+    $compras = new compra();
+    $verCompras = $compras->verCompras();
+    foreach($verCompras as $compras){
+        $folio = $compras['Folio'];
+    }
+    ?>
+    <div class="container mt-4 mb-5">
+    <h1>Folio: <?php $nuevoFolio = $folio + 1; echo $nuevoFolio;?></h1>
+        <form action="" method="post">
+            <label for="provedor">Proveedor</label>
+            <select name="provedor" id="provedor" class="form-control">
+            <?php
+                $provedor = new compra();
+                $verProvedor = $provedor->proveedor();
+                foreach($verProvedor as $provedor){
+            ?>
+            <option value="<?php echo $provedor['Nombre']; ?>"> <?php echo $provedor['Nombre']; ?></option>
+            <?php } ?> </select>
+            <label for="fechaEntrega">Fecha estimada de entrega:</label>
+            <input type="date" name="fechaEntrega" id="fechaEntrega" class="form-control">
+            <label for="articulo">Artículo:</label>
+            <select name="articulo" id="articulo" class="form-control">
+            <?php
+                $article = new compra();
+                $verArticle = $article->articles();
+                foreach($verArticle as $article){
+            ?>
+            <option value="<?php echo $article['nombre']; ?>"> <?php echo $article['nombre']; ?></option>
+            <?php } ?> </select>
+            <label for="descripcion">Descripcion</label>
+            <input type="text" name="descripcion" id="descripcion" class="form-control" readonly/>
+            <label for="cantidad">Cantidad</label>
+            <input type="number" name="cantidad" id="cantidad"  min="1" class="form-control" value="1">
+            <label for="costo">Costo</label>
+            <input type="text" id="costo" name="costo" class="form-control" readonly />
+            <label for="IVA">IVA</label>
+            <input type="text" id="IVA" name="IVA" class="form-control" readonly />
+            <label for="costoIVA">Costo + IVA</label>
+            <input type="text" id="costoIVA" name="costoIVA" class="form-control" readonly />
+        </form>
+    </div>
     <?php require_once 'footer.php'; ?>
-    <script src="jquery-3.4.1.min.js"></script>
+    <script src="../assets/js/compras.js"></script>
 </body>
 </html>

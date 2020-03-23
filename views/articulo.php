@@ -39,9 +39,7 @@
             <label for="giro">Giro</label>
             <select name="giro" id="giro" class="form-control">
             <?php include_once '../model/acciones.php';
-                $art = new compra();
                 $giro = new compra();
-                $showArt = $art->articles();
                 $showGiro = $giro->giros();
                 foreach($showGiro as $giro) { 
             ?>

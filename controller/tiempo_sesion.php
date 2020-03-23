@@ -1,6 +1,6 @@
 <?php
     if(isset($_SESSION['tiempo'])) {
-        $inactivo = 1200;
+        $inactivo = 1800;
         $vida_session = time() - $_SESSION['tiempo'];
             if($vida_session > $inactivo)
             {

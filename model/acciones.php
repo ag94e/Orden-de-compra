@@ -77,7 +77,10 @@ ini_set('display_errors', '1');
         }
         public function setUser($user){
             $query=$this->db->query("SELECT * FROM usuarios WHERE usuario = '$user'");
-            return $query;
+            while($filas=$query->fetch_assoc()){
+                $this->list[]=$filas;
+            }
+            return $this->list;
         }
         ////////////////////////////////////////////////
         ///////         AGREGAR ARTICULOS        ///////
@@ -151,6 +154,20 @@ ini_set('display_errors', '1');
                 $this->db->query("INSERT INTO `giro 1` (ID, Descripcion) VALUES ('', '$giros')");
                 echo json_encode('success');
             }
+        }
+        ////////////////////////////////////////////////
+        ///////         TABLA DE COMPRAS         ///////
+        ///////         TABLA DE COMPRAS         ///////
+        ///////         TABLA DE COMPRAS         ///////
+        ///////         TABLA DE COMPRAS         ///////
+        ///////         TABLA DE COMPRAS         ///////
+        ////////////////////////////////////////////////
+        public function verCompras(){
+            $query=$this->db->query("SELECT * FROM `tabla_de _compras` ORDER BY Folio DESC LIMIT 1");
+            while($filas=$query->fetch_assoc()){
+                $this->list[]=$filas;
+            }
+            return $this->list;
         }
     }
 ////////////////////////////////////////////////
