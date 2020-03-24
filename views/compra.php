@@ -41,7 +41,10 @@
     }
     ?>
     <div class="container mt-4 mb-5">
-    <h1>Folio: <?php $nuevoFolio = $folio + 1; echo $nuevoFolio;?></h1>
+    <div class="container d-flex justify-content-between">
+        <h1>Folio: <?php $nuevoFolio = $folio + 1; echo $nuevoFolio;?></h1>
+        <h2 id="fecha">Fecha: </h2>
+    </div>
         <form action="" method="post">
             <label for="provedor">Proveedor</label>
             <select name="provedor" id="provedor" class="form-control">

@@ -1,18 +1,12 @@
 <?php
- $mysqli = new  mysqli("localhost", "root", "", "ordencompra");
-
+ $mysqli = new mysqli("localhost", "root", "", "ordencompra");
  $salida = "";
-
- $query = "SELECT * FROM compras";
-
  if(isset($_POST['consulta'])){
-     $q =$mysqli->real_escape_string($_POST['consulta']);
-     $query = "SELECT * FROM comprasFROM usuarios WHERE noFolio LIKE '%".$q."%' OR fechaCaptura LIKE '%".$q."%' OR fechaCaptura LIKE '%".$q."%'OR idProveedor LIKE '%".$q."%' OR usuario LIKE '%".$q."%' OR articulo LIKE '%".$q."%' OR descripcion LIKE '%".$q."%' OR costo LIKE '%".$q."%'  OR total LIKE '%".$q."%' OR fechaEntrega LIKE '%".$q."%'" ;
+        $q =$mysqli->real_escape_string($_POST['consulta']);
+        $query = "SELECT * FROM comprasFROM usuarios WHERE noFolio LIKE '%".$q."%' OR fechaCaptura LIKE '%".$q."%' OR fechaCaptura LIKE '%".$q."%'OR idProveedor LIKE '%".$q."%' OR usuario LIKE '%".$q."%' OR articulo LIKE '%".$q."%' OR descripcion LIKE '%".$q."%' OR costo LIKE '%".$q."%'  OR total LIKE '%".$q."%' OR fechaEntrega LIKE '%".$q."%'" ;
     }
-  $resultado = $mysqli->query($query);
-
+  $resultado = $mysqli->query("SELECT * FROM compras");
   if($resultado->num_rows > 0){
-
     $salida.="<table class='tabla_datos'>
     <thead>
         <tr>
@@ -40,15 +34,12 @@
             <td>".$fila['total']."</td>
             <td>".$fila['fechaEntrega']."</td>
         ";
-    }   
-    
+    }
     $salida.="</tbody></table>";
   }else{
       $salida.="No hay datos";
   }
-
   echo $salida;
-
   $mysqli->close();
 
 ?>
