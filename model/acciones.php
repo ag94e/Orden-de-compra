@@ -169,6 +169,10 @@ ini_set('display_errors', '1');
             }
             return $this->list;
         }
+        public function registrarCompra($fechaCap,$idProv,$user,$art,$desc,$costoU,$iva,$cosTot,$fechaEnt){
+            $query=$this->db->query("INSERT INTO `tabla_de _compras` (Folio, `Fecha de captura`, id_provedores, Usuario, Articulo, Descripcion, `Costo unitario(sin iva)`, IVA, `Costo total`, `Fecha de entrega`) VALUES ('','$fechaCap','$idProv','$user','$art','$desc','$costoU','$iva','$cosTot','$fechaEnt')");
+            echo json_encode('success');
+        }
     }
 ////////////////////////////////////////////////
 ///////        CLASE PARA SESSION        ///////
